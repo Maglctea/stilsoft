@@ -15,4 +15,4 @@ class TransactionSerializer(ModelSerializer):
 class TransactionCreateSerializer(ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ('user', 'transaction_type', 'sum')
+        fields = ('user', 'type', 'sum')
