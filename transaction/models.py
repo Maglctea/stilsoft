@@ -21,4 +21,4 @@ class Transaction(models.Model):
         verbose_name_plural = 'Транзакции'
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)

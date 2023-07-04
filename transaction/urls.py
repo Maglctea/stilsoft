@@ -1,5 +1,8 @@
 from django.urls import path, include
 
+from transaction.views import ListTransactionView
+
 urlpatterns = [
-    path('api-auth/', include('rest_framework.urls'))
+    path('', ListTransactionView.as_view()),
+    path('', ListTransactionView.as_view()),
 ]

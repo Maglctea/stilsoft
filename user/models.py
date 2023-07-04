@@ -17,7 +17,7 @@ class User(AbstractUser):
 
 
 class Balance(models.Model):
-    user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE, related_name='balances')
+    user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE, related_name='balance')
     balance = models.IntegerField('Баланс', default=0)
 
     class Meta:

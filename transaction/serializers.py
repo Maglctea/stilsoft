@@ -10,3 +10,9 @@ class TransactionSerializer(ModelSerializer):
     class Meta:
         model = Transaction
         fields = '__all__'
+
+
+class TransactionCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ('user', 'transaction_type', 'sum')
