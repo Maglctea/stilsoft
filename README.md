@@ -30,6 +30,8 @@ Test quest for company stilsoft
 
 2) **Swagger:** http://127.0.0.1:8000/swagger/
 
+*See the auto documentation for getting CRUD request parameters*
+
 ### Transaction
 * **GET:** http://127.0.0.1:8000/api/transactions/ - all transactions
 
