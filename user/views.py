@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from user.models import User
 from user.serializers import UserSerializer, UserCreateSerializer, TopTotalTransactionSumSerializer, \
-    TopMaxTransactionSerializer
+    TopMaxTransactionSerializer, UserUpdateSerializer
 
 from dateutil.relativedelta import relativedelta
 
@@ -42,7 +42,7 @@ class DetailUserView(RetrieveUpdateDestroyAPIView):
 
     def get_serializer_class(self):
         if self.request.method == 'PUT':
-            return UserCreateSerializer
+            return UserUpdateSerializer
         else:
             return UserSerializer
 

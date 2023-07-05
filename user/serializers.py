@@ -18,7 +18,7 @@ class UserSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('email', 'balance')
+        fields = ('pk', 'email', 'balance')
 
 
 class TopMaxTransactionSerializer(ModelSerializer):
@@ -60,8 +60,22 @@ class UserCreateSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('email', 'password')
+        fields = ('pk', 'email', 'password')
         extra_kwargs = {
             'email': {'required': True},
             'password': {'required': True}
         }
+
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=False)
+
+    class Meta:
+        model = User
+        fields = ('pk', 'email', 'password')
+
+    def update(self, instance, validated_data):
+        password = validated_data.pop('password', None)
+        if password:
+            instance.set_password(password)
+        return super().update(instance, validated_data)

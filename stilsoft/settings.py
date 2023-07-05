@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
     #
     'user',
-    'transaction'
+    'transaction',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
