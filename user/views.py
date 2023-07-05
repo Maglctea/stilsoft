@@ -13,6 +13,8 @@ from dateutil.relativedelta import relativedelta
 
 
 class ListUserView(ListCreateAPIView):
+    """Class for viewing and creating users"""
+
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
 
@@ -37,6 +39,8 @@ class ListUserView(ListCreateAPIView):
 
 
 class DetailUserView(RetrieveUpdateDestroyAPIView):
+    """Class for updating and deleting users"""
+
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
@@ -48,6 +52,8 @@ class DetailUserView(RetrieveUpdateDestroyAPIView):
 
 
 class TopMaxTransactionUsersView(ListAPIView):
+    """Class for viewing top-10 users with max transactions"""
+
     serializer_class = TopMaxTransactionSerializer
 
     def get_queryset(self):
@@ -60,6 +66,8 @@ class TopMaxTransactionUsersView(ListAPIView):
 
 
 class TopSumTransactionUsersView(ListAPIView):
+    """Class for viewing top-10 users with total sum transactions"""
+
     serializer_class = TopTotalTransactionSumSerializer
 
     def get_queryset(self):

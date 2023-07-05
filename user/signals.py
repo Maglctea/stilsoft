@@ -7,6 +7,8 @@ from user.models import Balance
 
 @receiver(post_save, sender=stilsoft.settings.AUTH_USER_MODEL)
 def post_save_user(created, **kwargs):
+    """Signal to create a user balance when creating a user"""
+
     if created:
         user = kwargs.get('instance')
         Balance.objects.create(user=user, balance=0)

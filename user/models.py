@@ -7,6 +7,7 @@ from user.manager import UserManager
 
 
 class User(AbstractUser):
+    """User model"""
     objects = UserManager()
     password = models.CharField(_("password"), max_length=128, blank=False)
     email = models.EmailField(_('email address'), unique=True)
@@ -30,6 +31,7 @@ class User(AbstractUser):
 
 
 class Balance(models.Model):
+    """Balance model"""
     user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE, related_name='balance')
     balance = models.IntegerField('Баланс', default=0)
 

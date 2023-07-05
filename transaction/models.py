@@ -4,6 +4,8 @@ from user.models import User
 
 
 class Transaction(models.Model):
+    """Transaction model"""
+
     REPLENISHMENT = 'replenishment'
     DEBITING = 'debiting'
 

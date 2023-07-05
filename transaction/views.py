@@ -6,6 +6,7 @@ from transaction.serializers import TransactionSerializer, TransactionCreateSeri
 
 
 class ListTransactionView(ListCreateAPIView):
+    """Class for viewing and creating transactions"""
     serializer_class = TransactionSerializer
     queryset = Transaction.objects.all()
 
@@ -17,6 +18,7 @@ class ListTransactionView(ListCreateAPIView):
 
 
 class DetailTransactionView(RetrieveUpdateDestroyAPIView):
+    """Class for updating and deleting transaction"""
     serializer_class = TransactionSerializer
     queryset = Transaction.objects.all()
 

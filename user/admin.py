@@ -5,6 +5,8 @@ from user.models import Balance, User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
+    """Class for viewing users in admin panel"""
+
     list_display = ('pk', 'email', 'is_superuser', 'is_active', 'date_joined')
     list_filter = ('is_superuser', 'is_active')
     ordering = ('email', 'date_joined')
@@ -15,6 +17,8 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Balance)
 class BalanceAdmin(admin.ModelAdmin):
+    """Class for users transactions in admin panel"""
+
     list_display = ('pk', 'user', 'balance')
     ordering = ('user', 'balance')
     list_per_page = 30

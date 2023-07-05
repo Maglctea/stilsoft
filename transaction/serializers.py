@@ -5,6 +5,8 @@ from user.serializers import UserSerializer
 
 
 class TransactionSerializer(ModelSerializer):
+    """Serializer for view transactions"""
+
     user = UserSerializer()
 
     class Meta:
@@ -13,6 +15,8 @@ class TransactionSerializer(ModelSerializer):
 
 
 class TransactionCreateSerializer(ModelSerializer):
+    """Serializer for creating transactions"""
+
     class Meta:
         model = Transaction
         fields = ('user', 'type', 'sum')

@@ -8,12 +8,16 @@ from user.models import User, Balance
 
 
 class BalanceSerializer(ModelSerializer):
+    """Serializer for view balances"""
+
     class Meta:
         model = Balance
         fields = '__all__'
 
 
 class UserSerializer(ModelSerializer):
+    """Serializer for view users"""
+
     balance = BalanceSerializer()
 
     class Meta:
@@ -22,6 +26,8 @@ class UserSerializer(ModelSerializer):
 
 
 class TopMaxTransactionSerializer(ModelSerializer):
+    """Serializer for view top-10 users with max transactions """
+
     balance = BalanceSerializer()
     max_transaction = serializers.CharField(max_length=15)
 
@@ -31,6 +37,8 @@ class TopMaxTransactionSerializer(ModelSerializer):
 
 
 class TopTotalTransactionSumSerializer(ModelSerializer):
+    """Serializer for view top-10 users with total sum transactions """
+
     balance = BalanceSerializer()
     total_transaction_sum = serializers.CharField(max_length=15)
 
@@ -40,6 +48,7 @@ class TopTotalTransactionSumSerializer(ModelSerializer):
 
 
 class UserCreateSerializer(ModelSerializer):
+    """Serializer for creating users """
 
     def validate_email(self, value):
         try:
@@ -68,6 +77,8 @@ class UserCreateSerializer(ModelSerializer):
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
+    """Serializer for updating users """
+
     password = serializers.CharField(write_only=True, required=False)
 
     class Meta:

@@ -9,6 +9,8 @@ from user.models import Balance
 
 @receiver(pre_save, sender=models.Transaction)
 def post_save_transaction(**kwargs):
+    """Signal to update a user balance when updating a transaction"""
+
     new_transaction = kwargs.get('instance')
     modifier = 1 if new_transaction.type == Transaction.DEBITING else -1
 
